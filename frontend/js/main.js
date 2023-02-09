@@ -12,9 +12,21 @@ function remcl(){
 		parent.classList.remove("focus");
 	}
 }
-
-
 inputs.forEach(input => {
 	input.addEventListener("focus", addcl);
 	input.addEventListener("blur", remcl);
 });
+
+
+// Handeling User for login
+
+const usernameInput  = document.querySelector('#username-input');
+
+const from = document.querySelector('form')
+
+from.addEventListener('submit', event => {
+	event.preventDefault()
+	console.log('Submit');
+	let apiUrl = 'http://localhost:3000/api/users?username=${usernameInput.value}';
+	console.log(apiUrl);
+})
